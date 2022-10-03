@@ -1,14 +1,14 @@
-package linkedlist;
+package linkedlist.simplelinkedlist;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-public class SimpleLinkedListOptimizationWithSizeTest {
+public class SimpleLinkedListOptimizationWithTailTest {
 
 
     @Test
     public void testAddToFront() {
-        SimpleLinkedListOptimizationWithSize<Integer> sll = new SimpleLinkedListOptimizationWithSize<>();
+        SimpleLinkedListOptimizationWithTail<Integer> sll = new SimpleLinkedListOptimizationWithTail<>();
 
         sll.addToFront(1);
         sll.addToFront(2);
@@ -22,7 +22,7 @@ public class SimpleLinkedListOptimizationWithSizeTest {
 
     @Test
     public void testAddToBack() {
-        SimpleLinkedListOptimizationWithSize<Integer> sll = new SimpleLinkedListOptimizationWithSize<>();
+        SimpleLinkedListOptimizationWithTail<Integer> sll = new SimpleLinkedListOptimizationWithTail<>();
 
         sll.addToBack(1);
         sll.addToBack(2);
@@ -37,7 +37,7 @@ public class SimpleLinkedListOptimizationWithSizeTest {
 
     @Test
     public void testRemoveFront() {
-        SimpleLinkedListOptimizationWithSize<Integer> sll = new SimpleLinkedListOptimizationWithSize<>();
+        SimpleLinkedListOptimizationWithTail<Integer> sll = new SimpleLinkedListOptimizationWithTail<>();
 
         sll.addToBack(1);
         sll.addToBack(2);
@@ -49,18 +49,18 @@ public class SimpleLinkedListOptimizationWithSizeTest {
         Assert.assertEquals(4, sll.size());
         Assert.assertArrayEquals(new Object[]{2, 3, 4, 5}, sll.toArray());
 
-        sll = new SimpleLinkedListOptimizationWithSize<>();
+        sll = new SimpleLinkedListOptimizationWithTail<>();
         sll.removeFromFront();
         Assert.assertEquals(0, sll.size());
         Assert.assertArrayEquals(new Object[]{}, sll.toArray());
 
-        sll = new SimpleLinkedListOptimizationWithSize<>();
+        sll = new SimpleLinkedListOptimizationWithTail<>();
         sll.addToFront(666);
         sll.removeFromFront();
         Assert.assertEquals(0, sll.size());
         Assert.assertArrayEquals(new Object[]{}, sll.toArray());
 
-        sll = new SimpleLinkedListOptimizationWithSize<>();
+        sll = new SimpleLinkedListOptimizationWithTail<>();
         sll.addToFront(666);
         sll.addToFront(333);
         sll.removeFromFront();
@@ -71,7 +71,7 @@ public class SimpleLinkedListOptimizationWithSizeTest {
 
     @Test
     public void testRemoveBack() {
-        SimpleLinkedListOptimizationWithSize<Integer> sll = new SimpleLinkedListOptimizationWithSize<>();
+        SimpleLinkedListOptimizationWithTail<Integer> sll = new SimpleLinkedListOptimizationWithTail<>();
 
         sll.addToBack(1);
         sll.addToBack(2);
@@ -83,18 +83,18 @@ public class SimpleLinkedListOptimizationWithSizeTest {
         Assert.assertEquals(4, sll.size());
         Assert.assertArrayEquals(new Object[]{1, 2, 3, 4}, sll.toArray());
 
-        sll = new SimpleLinkedListOptimizationWithSize<>();
+        sll = new SimpleLinkedListOptimizationWithTail<>();
         sll.removeFromBack();
         Assert.assertEquals(0, sll.size());
         Assert.assertArrayEquals(new Object[]{}, sll.toArray());
 
-        sll = new SimpleLinkedListOptimizationWithSize<>();
+        sll = new SimpleLinkedListOptimizationWithTail<>();
         sll.addToFront(666);
         sll.removeFromBack();
         Assert.assertEquals(0, sll.size());
         Assert.assertArrayEquals(new Object[]{}, sll.toArray());
 
-        sll = new SimpleLinkedListOptimizationWithSize<>();
+        sll = new SimpleLinkedListOptimizationWithTail<>();
         sll.addToFront(666);
         sll.addToFront(333);
         sll.removeFromBack();

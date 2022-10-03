@@ -1,41 +1,47 @@
-package linkedlist;
+package linkedlist.doublylinkedlist;
 
-public class SimpleLinkedListOptimizationWithTail<T> {
+public class DoublyLinkedList<T> {
 
     private int size;
     private Node<T> head;
     private Node<T> tail;
 
-    public SimpleLinkedListOptimizationWithTail() {
+    public DoublyLinkedList() {
         size = 0;
     }
 
     public void addToFront(T value) {
-        Node<T> nodeTemp = head;
-
-        head = new Node<>(value);
-        head.next = nodeTemp;
+        Node<T> newNode = new Node<>(value);
 
         if (size == 0) {
-            tail = head;
-        }
-        if (size == 1) {
-            tail = nodeTemp;
-        }
-
-        size++;
-    }
-
-    public void addToBack(T value) {
-        if (size == 0) {
-            head = new Node<>(value);
+            head = newNode;
             tail = head;
             size = 1;
             return;
         }
 
-        tail.next = new Node<>(value);
-        tail = tail.next;
+        newNode.next = head;
+        head.previous = newNode;
+        
+        head = newNode;
+
+        size++;
+    }
+
+    public void addToBack(T value) {
+
+        Node<T> newNode = new Node<>(value);
+
+        if (size == 0) {
+            head = newNode;
+            tail = head;
+            size = 1;
+            return;
+        }
+
+        newNode.previous = tail;
+        tail.next = newNode;
+        tail = newNode;
         size++;
     }
 
@@ -45,10 +51,14 @@ public class SimpleLinkedListOptimizationWithTail<T> {
         }
 
         if (size == 1) {
-            tail = head;
+            head = null;
+            tail = null;
+            size = 0;
+            return;
         }
 
         head = head.next;
+        head.previous = null;
 
         size--;
     }
@@ -59,17 +69,15 @@ public class SimpleLinkedListOptimizationWithTail<T> {
         }
 
         if (size == 1) {
-            head = tail = null;
+            head = null;
+            tail = null;
             size = 0;
             return;
         }
 
-        Node<T> current = head;
-        while (current.next.next != null) {
-            current = current.next;
-        }
+        tail = tail.previous;
+        tail.next = null;
 
-        current.next = null;
         size--;
     }
 
@@ -91,16 +99,12 @@ public class SimpleLinkedListOptimizationWithTail<T> {
     }
 
     private static final class Node<T> {
+        private Node<T> previous;
         private T value;
         private Node<T> next;
 
-        Node(T value, Node next) {
-            this.value = value;
-            this.next = next;
-        }
-
         Node(T value) {
-            this(value, null);
+            this.value = value;
         }
 
     }

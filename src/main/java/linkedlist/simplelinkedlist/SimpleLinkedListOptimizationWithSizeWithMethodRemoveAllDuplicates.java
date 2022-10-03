@@ -1,15 +1,33 @@
-package linkedlist;
+package linkedlist.simplelinkedlist;
 
-import java.util.Iterator;
-
-public class SimpleLinkedListOptimizationWithTailIterable<T> implements Iterable<T> {
+public class SimpleLinkedListOptimizationWithSizeWithMethodRemoveAllDuplicates<T> {
 
     private int size;
     private Node<T> head;
-    private Node<T> tail;
 
-    public SimpleLinkedListOptimizationWithTailIterable() {
+    public SimpleLinkedListOptimizationWithSizeWithMethodRemoveAllDuplicates() {
         size = 0;
+    }
+
+    /*
+    Remove duplicates in a Simple Single List where the data is already sorted
+*/
+    public void removeAllDuplicates() {
+        removeAllDuplicates(head);
+    }
+
+    private void removeAllDuplicates(Node<T> currentNode) {
+
+        if (currentNode == null || currentNode.next == null) {
+            return;
+        }
+
+        if (currentNode.value.equals(currentNode.next.value)) {
+            currentNode.next = currentNode.next.next;
+            size--;
+        }
+
+        removeAllDuplicates(currentNode.next);
     }
 
     public void addToFront(T value) {
@@ -17,27 +35,22 @@ public class SimpleLinkedListOptimizationWithTailIterable<T> implements Iterable
 
         head = new Node<>(value);
         head.next = nodeTemp;
-
-        if (size == 0) {
-            tail = head;
-        }
-        if (size == 1) {
-            tail = nodeTemp;
-        }
-
         size++;
     }
 
     public void addToBack(T value) {
         if (size == 0) {
             head = new Node<>(value);
-            tail = head;
             size = 1;
             return;
         }
 
-        tail.next = new Node<>(value);
-        tail = tail.next;
+        Node current = head;
+        while (current.next != null) {
+            current = current.next;
+        }
+
+        current.next = new Node<>(value);
         size++;
     }
 
@@ -46,12 +59,7 @@ public class SimpleLinkedListOptimizationWithTailIterable<T> implements Iterable
             return;
         }
 
-        if (size == 1) {
-            tail = head;
-        }
-
         head = head.next;
-
         size--;
     }
 
@@ -61,7 +69,7 @@ public class SimpleLinkedListOptimizationWithTailIterable<T> implements Iterable
         }
 
         if (size == 1) {
-            head = tail = null;
+            head = null;
             size = 0;
             return;
         }
@@ -92,11 +100,6 @@ public class SimpleLinkedListOptimizationWithTailIterable<T> implements Iterable
         return size;
     }
 
-    @Override
-    public Iterator<T> iterator() {
-        return new SLLIterator();
-    }
-
     private static final class Node<T> {
         private T value;
         private Node<T> next;
@@ -110,29 +113,5 @@ public class SimpleLinkedListOptimizationWithTailIterable<T> implements Iterable
             this(value, null);
         }
 
-    }
-
-    private class SLLIterator implements Iterator<T> {
-
-        private Node<T> current;
-
-        SLLIterator() {
-            current = head;
-        }
-
-        @Override
-        public boolean hasNext() {
-            return current != null;
-        }
-
-        @Override
-        public T next() {
-            if (hasNext()) {
-                T currentValue = current.value;
-                current = current.next;
-                return currentValue;
-            }
-            return null;
-        }
     }
 }

@@ -1,11 +1,14 @@
-package linkedlist;
+package linkedlist.simplelinkedlist;
 
-public class SimpleLinkedListOptimizationWithSize<T> {
+import java.util.Iterator;
+
+public class SimpleLinkedListOptimizationWithTailIterable<T> implements Iterable<T> {
 
     private int size;
     private Node<T> head;
+    private Node<T> tail;
 
-    public SimpleLinkedListOptimizationWithSize() {
+    public SimpleLinkedListOptimizationWithTailIterable() {
         size = 0;
     }
 
@@ -14,22 +17,27 @@ public class SimpleLinkedListOptimizationWithSize<T> {
 
         head = new Node<>(value);
         head.next = nodeTemp;
+
+        if (size == 0) {
+            tail = head;
+        }
+        if (size == 1) {
+            tail = nodeTemp;
+        }
+
         size++;
     }
 
     public void addToBack(T value) {
         if (size == 0) {
             head = new Node<>(value);
+            tail = head;
             size = 1;
             return;
         }
 
-        Node current = head;
-        while (current.next != null) {
-            current = current.next;
-        }
-
-        current.next = new Node<>(value);
+        tail.next = new Node<>(value);
+        tail = tail.next;
         size++;
     }
 
@@ -38,7 +46,12 @@ public class SimpleLinkedListOptimizationWithSize<T> {
             return;
         }
 
+        if (size == 1) {
+            tail = head;
+        }
+
         head = head.next;
+
         size--;
     }
 
@@ -48,7 +61,7 @@ public class SimpleLinkedListOptimizationWithSize<T> {
         }
 
         if (size == 1) {
-            head = null;
+            head = tail = null;
             size = 0;
             return;
         }
@@ -79,6 +92,11 @@ public class SimpleLinkedListOptimizationWithSize<T> {
         return size;
     }
 
+    @Override
+    public Iterator<T> iterator() {
+        return new SLLIterator();
+    }
+
     private static final class Node<T> {
         private T value;
         private Node<T> next;
@@ -92,5 +110,29 @@ public class SimpleLinkedListOptimizationWithSize<T> {
             this(value, null);
         }
 
+    }
+
+    private class SLLIterator implements Iterator<T> {
+
+        private Node<T> current;
+
+        SLLIterator() {
+            current = head;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return current != null;
+        }
+
+        @Override
+        public T next() {
+            if (hasNext()) {
+                T currentValue = current.value;
+                current = current.next;
+                return currentValue;
+            }
+            return null;
+        }
     }
 }

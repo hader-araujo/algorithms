@@ -1,33 +1,12 @@
-package linkedlist;
+package linkedlist.simplelinkedlist;
 
-public class SimpleLinkedListOptimizationWithSizeWithMethodRemoveAllDuplicates<T> {
+public class SimpleLinkedList<T> {
 
     private int size;
     private Node<T> head;
 
-    public SimpleLinkedListOptimizationWithSizeWithMethodRemoveAllDuplicates() {
+    public SimpleLinkedList() {
         size = 0;
-    }
-
-    /*
-    Remove duplicates in a Simple Single List where the data is already sorted
-*/
-    public void removeAllDuplicates() {
-        removeAllDuplicates(head);
-    }
-
-    private void removeAllDuplicates(Node<T> currentNode) {
-
-        if (currentNode == null || currentNode.next == null) {
-            return;
-        }
-
-        if (currentNode.value.equals(currentNode.next.value)) {
-            currentNode.next = currentNode.next.next;
-            size--;
-        }
-
-        removeAllDuplicates(currentNode.next);
     }
 
     public void addToFront(T value) {
@@ -39,7 +18,7 @@ public class SimpleLinkedListOptimizationWithSizeWithMethodRemoveAllDuplicates<T
     }
 
     public void addToBack(T value) {
-        if (size == 0) {
+        if (head == null) {
             head = new Node<>(value);
             size = 1;
             return;
@@ -55,7 +34,7 @@ public class SimpleLinkedListOptimizationWithSizeWithMethodRemoveAllDuplicates<T
     }
 
     public void removeFromFront() {
-        if (size == 0) {
+        if (head == null) {
             return;
         }
 
@@ -64,11 +43,11 @@ public class SimpleLinkedListOptimizationWithSizeWithMethodRemoveAllDuplicates<T
     }
 
     public void removeFromBack() {
-        if (size == 0) {
+        if (head == null) {
             return;
         }
 
-        if (size == 1) {
+        if (head.next == null) {
             head = null;
             size = 0;
             return;
@@ -84,12 +63,16 @@ public class SimpleLinkedListOptimizationWithSizeWithMethodRemoveAllDuplicates<T
     }
 
     public Object[] toArray() {
+        if (head == null) {
+            return new Object[0];
+        }
 
         Object[] arrayToResponse = new Object[size];
 
         Node<T> current = head;
-        for (int i = 0; i < size; i++) {
-            arrayToResponse[i] = current.value;
+        int index = 0;
+        while (current != null) {
+            arrayToResponse[index++] = current.value;
             current = current.next;
         }
 

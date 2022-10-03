@@ -1,11 +1,12 @@
-package linkedlist;
+package linkedlist.simplelinkedlist;
 
-public class SimpleLinkedList<T> {
+public class SimpleLinkedListOptimizationWithTail<T> {
 
     private int size;
     private Node<T> head;
+    private Node<T> tail;
 
-    public SimpleLinkedList() {
+    public SimpleLinkedListOptimizationWithTail() {
         size = 0;
     }
 
@@ -14,41 +15,51 @@ public class SimpleLinkedList<T> {
 
         head = new Node<>(value);
         head.next = nodeTemp;
+
+        if (size == 0) {
+            tail = head;
+        }
+        if (size == 1) {
+            tail = nodeTemp;
+        }
+
         size++;
     }
 
     public void addToBack(T value) {
-        if (head == null) {
+        if (size == 0) {
             head = new Node<>(value);
+            tail = head;
             size = 1;
             return;
         }
 
-        Node current = head;
-        while (current.next != null) {
-            current = current.next;
-        }
-
-        current.next = new Node<>(value);
+        tail.next = new Node<>(value);
+        tail = tail.next;
         size++;
     }
 
     public void removeFromFront() {
-        if (head == null) {
+        if (size == 0) {
             return;
         }
 
+        if (size == 1) {
+            tail = head;
+        }
+
         head = head.next;
+
         size--;
     }
 
     public void removeFromBack() {
-        if (head == null) {
+        if (size == 0) {
             return;
         }
 
-        if (head.next == null) {
-            head = null;
+        if (size == 1) {
+            head = tail = null;
             size = 0;
             return;
         }
@@ -63,16 +74,12 @@ public class SimpleLinkedList<T> {
     }
 
     public Object[] toArray() {
-        if (head == null) {
-            return new Object[0];
-        }
 
         Object[] arrayToResponse = new Object[size];
 
         Node<T> current = head;
-        int index = 0;
-        while (current != null) {
-            arrayToResponse[index++] = current.value;
+        for (int i = 0; i < size; i++) {
+            arrayToResponse[i] = current.value;
             current = current.next;
         }
 
