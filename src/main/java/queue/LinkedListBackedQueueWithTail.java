@@ -1,23 +1,34 @@
-package stack;
+package queue;
 
-public class LinkedListBackedStack<T> {
+public class LinkedListBackedQueueWithTail<T> {
 
     private Node<T> head;
+    private Node<T> tail;
 
-    public void push(T value) {
+    public void enqueue(T value) {
+
         Node<T> newNode = new Node<>(value);
-        newNode.next = head;
-        head = newNode;
+        if (head == null) {
+            head = newNode;
+            tail = head;
+            return;
+        }
+
+        tail.next = newNode;
+        tail = newNode;
     }
 
-    public T pop() {
+    public T dequeue() {
         if (head == null) {
             return null;
         }
 
-        T headValue = head.value;
+        T currentValue = head.value;
         head = head.next;
-        return headValue;
+        if (head == null || head.next == null) {
+            tail = head;
+        }
+        return currentValue;
 
     }
 
@@ -37,11 +48,9 @@ public class LinkedListBackedStack<T> {
         private T value;
         private Node<T> next;
 
-        private Node(T value) {
+        public Node(T value) {
             this.value = value;
         }
-
     }
-
 
 }

@@ -10,7 +10,7 @@ public class LinkedListBackedStackTest {
         LinkedListBackedStack<Integer> stack = new LinkedListBackedStack<>();
 
         Assert.assertTrue(stack.isEmpty());
-        Assert.assertNull(stack.peak());
+        Assert.assertNull(stack.peek());
         Assert.assertNull(stack.pop());
     }
 
@@ -21,7 +21,7 @@ public class LinkedListBackedStackTest {
         stack.push(66);
 
         Assert.assertFalse(stack.isEmpty());
-        Assert.assertEquals(66, (long) stack.peak());
+        Assert.assertEquals(66, (long) stack.peek());
         Assert.assertEquals(66, (long) stack.pop());
         Assert.assertTrue(stack.isEmpty());
     }
@@ -34,17 +34,17 @@ public class LinkedListBackedStackTest {
         stack.push(66);
         stack.push(99);
 
-        Assert.assertEquals(99, (long) stack.peak());
+        Assert.assertEquals(99, (long) stack.peek());
         Assert.assertEquals(99, (long) stack.pop());
 
-        Assert.assertEquals(66, (long) stack.peak());
+        Assert.assertEquals(66, (long) stack.peek());
         Assert.assertEquals(66, (long) stack.pop());
 
-        Assert.assertEquals(33, (long) stack.peak());
+        Assert.assertEquals(33, (long) stack.peek());
         Assert.assertEquals(33, (long) stack.pop());
 
         Assert.assertTrue(stack.isEmpty());
-        Assert.assertNull(stack.peak());
+        Assert.assertNull(stack.peek());
         Assert.assertNull(stack.pop());
     }
 
@@ -59,7 +59,7 @@ public class LinkedListBackedStackTest {
         stack.clear();
 
         Assert.assertTrue(stack.isEmpty());
-        Assert.assertNull(stack.peak());
+        Assert.assertNull(stack.peek());
         Assert.assertNull(stack.pop());
     }
 }
