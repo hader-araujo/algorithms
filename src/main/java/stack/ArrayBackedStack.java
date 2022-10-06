@@ -1,12 +1,12 @@
 package stack;
 
-public class ArrayListBackedStack<T> {
+public class ArrayBackedStack<T> {
 
     private static final int DEFAULT_SIZE = 10;
     private Object[] elementsData;
     private int size;
 
-    public ArrayListBackedStack() {
+    public ArrayBackedStack() {
         elementsData = new Object[DEFAULT_SIZE];
         size = 0;
     }

@@ -3,11 +3,11 @@ package stack;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class ArrayListListBackedStackTest {
+public class ArrayBackedStackTest {
 
     @Test
     public void emptyStack() {
-        ArrayListBackedStack<Integer> stack = new ArrayListBackedStack<>();
+        ArrayBackedStack<Integer> stack = new ArrayBackedStack<>();
 
         Assert.assertTrue(stack.isEmpty());
         Assert.assertNull(stack.peak());
@@ -16,7 +16,7 @@ public class ArrayListListBackedStackTest {
 
     @Test
     public void oneValue() {
-        ArrayListBackedStack<Integer> stack = new ArrayListBackedStack<>();
+        ArrayBackedStack<Integer> stack = new ArrayBackedStack<>();
 
         stack.push(66);
 
@@ -28,7 +28,7 @@ public class ArrayListListBackedStackTest {
 
     @Test
     public void threeValues() {
-        ArrayListBackedStack<Integer> stack = new ArrayListBackedStack<>();
+        ArrayBackedStack<Integer> stack = new ArrayBackedStack<>();
 
         stack.push(33);
         stack.push(66);
@@ -50,7 +50,7 @@ public class ArrayListListBackedStackTest {
 
     @Test
     public void manyValues() {
-        ArrayListBackedStack<Integer> stack = new ArrayListBackedStack<>();
+        ArrayBackedStack<Integer> stack = new ArrayBackedStack<>();
 
         stack.push(1);
         stack.push(2);
@@ -88,7 +88,7 @@ public class ArrayListListBackedStackTest {
 
     @Test
     public void clearValues() {
-        ArrayListBackedStack<Integer> stack = new ArrayListBackedStack<>();
+        ArrayBackedStack<Integer> stack = new ArrayBackedStack<>();
 
         stack.push(33);
         stack.push(66);
