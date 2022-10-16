@@ -1,5 +1,7 @@
 # Abstract Data Types (ADTs)
 
+![alt text](https://github.com/hader-araujo/algorithms/blob/main/src/main/resources/images/Big-O_ADT.png)
+
 ## [ArrayList](https://github.com/hader-araujo/algorithms/blob/main/src/main/java/arraylist/ArrayListImplementation.java)
 
 - Buscar por id, inserir, deletar - O(1) *
@@ -64,8 +66,6 @@
   head.next.next) - aumenta um edge case para size == 1
 - removeFromBack: 0(n): precisa percorrer toda a lista para obter um node antes do último e ele passar a apontar para
   head
-
-![alt text](https://github.com/hader-araujo/algorithms/blob/main/src/main/resources/images/Big-O_ADT.png)
 
 # Recursividade
 
