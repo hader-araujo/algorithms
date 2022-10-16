@@ -131,6 +131,7 @@ Stack é definido pelas suas operações e não pela sua estrutura de armazename
 
 ![Queue Big O notation](https://github.com/hader-araujo/algorithms/blob/main/src/main/resources/images/Big-O_Queue.png)
 
+~~
 ## [Queue baseado em Linked List](https://github.com/hader-araujo/algorithms/tree/main/src/main/java/queue/LinkedListBackedQueue.java)~~
 
 ~~- enqueue: O(n)~~
