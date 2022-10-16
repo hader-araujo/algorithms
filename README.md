@@ -1,6 +1,17 @@
 # Abstract Data Types (ADTs)
 
-![alt text](https://github.com/hader-araujo/algorithms/blob/main/src/main/resources/images/Big-O_ADT.png)
+- Estrutura de dados que é um container com número finito de objetos
+- Existe uma relação entre os objetos
+- São omitidos os detalhes de implementação de cada tipo
+- Exitem métodos padrões para manipulação dos dados armazenados
+
+# Linear Abstract Data Types ( Linear ADTs)
+
+- Dados finitos
+- Cada objeto tem 1 antecessor imediato
+- Cada objeto tem 1 sucessor imediato
+
+![List Big O notation](https://github.com/hader-araujo/algorithms/blob/main/src/main/resources/images/Big-O_ADT.png)
 
 ## [ArrayList](https://github.com/hader-araujo/algorithms/blob/main/src/main/java/arraylist/ArrayListImplementation.java)
 
@@ -66,6 +77,43 @@
   head.next.next) - aumenta um edge case para size == 1
 - removeFromBack: 0(n): precisa percorrer toda a lista para obter um node antes do último e ele passar a apontar para
   head
+
+## [Stack](https://github.com/hader-araujo/algorithms/tree/main/src/main/java/stack)
+
+- LIFO (Last In, Fist Out)
+- Não tem pesquisa
+- Não acessa elementos a não ser o último adicionado
+- Operações suportadas:
+    - void push(x): adiciona elemento
+    - x pop(): remove último elemento adicionado
+    - x peek() / x top(): retorna último elemento adicionado sem remover
+    - boolean isEmpty(): retorna se está vazio
+    - void clear(): limpa a pilha removendo todos os eleentos
+- Operações NÃO suportadas:
+    - searching for data
+    - Arbitrary index access
+    - Arbitrary add or remove
+
+Stack é definido pelas suas operações e não pela sua estrutura de armazenamento dos dados.
+
+![Stack Big O notation](https://github.com/hader-araujo/algorithms/blob/main/src/main/resources/images/Big-O_Stack.png)
+
+## [Stack baseado em Singly Linked List](https://github.com/hader-araujo/algorithms/tree/main/src/main/java/stack/SinglyLinkedListBackedStack.java)
+
+- Não precisa de variável tail
+- Não é utilizado/necessário Double Linked List (Double Linked List tem mais consumo de mémoria)
+- São leves e simples
+- Singly Linked List é a melhor opção para Stack
+- push, pop, peek, isEmpty: O(1)
+
+## [Stack baseado em Array](https://github.com/hader-araujo/algorithms/tree/main/src/main/java/stack/ArrayBackedStack.java)
+
+- Baseado em SLL é checado head, Baseado e Array é checado a variável size
+- Operações são sempre no final do array: O(1)*
+- clear(), 3 opções:
+    - Apenas deixa os dados no array e seta o size para 0: O(1) mas garbage collect não tem opção de coletar os dados
+    - Seta cada indice para null: O(n)
+    - Seta o array para uma nova instância assim o garbage collect pode coletar os dados: O(1)
 
 # Recursividade
 

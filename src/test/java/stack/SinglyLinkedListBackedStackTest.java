@@ -3,11 +3,11 @@ package stack;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class LinkedListBackedStackTest {
+public class SinglyLinkedListBackedStackTest {
 
     @Test
     public void emptyStack() {
-        LinkedListBackedStack<Integer> stack = new LinkedListBackedStack<>();
+        SinglyLinkedListBackedStack<Integer> stack = new SinglyLinkedListBackedStack<>();
 
         Assert.assertTrue(stack.isEmpty());
         Assert.assertNull(stack.peek());
@@ -16,7 +16,7 @@ public class LinkedListBackedStackTest {
 
     @Test
     public void oneValue() {
-        LinkedListBackedStack<Integer> stack = new LinkedListBackedStack<>();
+        SinglyLinkedListBackedStack<Integer> stack = new SinglyLinkedListBackedStack<>();
 
         stack.push(66);
 
@@ -28,7 +28,7 @@ public class LinkedListBackedStackTest {
 
     @Test
     public void threeValues() {
-        LinkedListBackedStack<Integer> stack = new LinkedListBackedStack<>();
+        SinglyLinkedListBackedStack<Integer> stack = new SinglyLinkedListBackedStack<>();
 
         stack.push(33);
         stack.push(66);
@@ -50,7 +50,7 @@ public class LinkedListBackedStackTest {
 
     @Test
     public void clearValues() {
-        LinkedListBackedStack<Integer> stack = new LinkedListBackedStack<>();
+        SinglyLinkedListBackedStack<Integer> stack = new SinglyLinkedListBackedStack<>();
 
         stack.push(33);
         stack.push(66);

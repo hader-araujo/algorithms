@@ -1,6 +1,6 @@
 package stack;
 
-public class LinkedListBackedStack<T> {
+public class SinglyLinkedListBackedStack<T> {
 
     private Node<T> head;
 
