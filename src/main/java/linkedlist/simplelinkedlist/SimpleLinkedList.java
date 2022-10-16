@@ -1,26 +1,18 @@
 package linkedlist.simplelinkedlist;
 
 public class SimpleLinkedList<T> {
-
-    private int size;
     private Node<T> head;
-
-    public SimpleLinkedList() {
-        size = 0;
-    }
 
     public void addToFront(T value) {
         Node<T> nodeTemp = head;
 
         head = new Node<>(value);
         head.next = nodeTemp;
-        size++;
     }
 
     public void addToBack(T value) {
         if (head == null) {
             head = new Node<>(value);
-            size = 1;
             return;
         }
 
@@ -30,7 +22,6 @@ public class SimpleLinkedList<T> {
         }
 
         current.next = new Node<>(value);
-        size++;
     }
 
     public void removeFromFront() {
@@ -39,7 +30,6 @@ public class SimpleLinkedList<T> {
         }
 
         head = head.next;
-        size--;
     }
 
     public void removeFromBack() {
@@ -49,7 +39,6 @@ public class SimpleLinkedList<T> {
 
         if (head.next == null) {
             head = null;
-            size = 0;
             return;
         }
 
@@ -59,28 +48,23 @@ public class SimpleLinkedList<T> {
         }
 
         current.next = null;
-        size--;
     }
 
-    public Object[] toArray() {
+    public String toString() {
         if (head == null) {
-            return new Object[0];
+            return "";
         }
 
-        Object[] arrayToResponse = new Object[size];
-
+        String answer = "";
         Node<T> current = head;
+
         int index = 0;
         while (current != null) {
-            arrayToResponse[index++] = current.value;
+            answer += current.value + " ";
             current = current.next;
         }
 
-        return arrayToResponse;
-    }
-
-    public int size() {
-        return size;
+        return answer.substring(0, answer.length() - 1);
     }
 
     private static final class Node<T> {
