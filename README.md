@@ -151,7 +151,7 @@ Stack é definido pelas suas operações e não pela sua estrutura de armazename
 - Ao adicionar no final, variavel back é incrementada com modulo do tamanho do array (back = (back + 1) % arr.lenhth ),
   com isso, ao chegar no final, próximo indice torna o início do array
 - ao remover do início, é usado mesma lógica, mas para a variável front
-- Array precisa de resize quando size == arr.lenght
+- Array precisa de resize quando size == arr.length
 - enqueue: O(1)*
 - dequeue, peek, isEmpty, clear: O(1)
 - resize: O(n)
