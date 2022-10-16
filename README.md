@@ -84,11 +84,11 @@
 - Não tem pesquisa
 - Não acessa elementos a não ser o último adicionado
 - Operações suportadas:
-    - void push(x): adiciona elemento
+    - void push(x): adiciona elemento no final
     - x pop(): remove último elemento adicionado
     - x peek() / x top(): retorna último elemento adicionado sem remover
     - boolean isEmpty(): retorna se está vazio
-    - void clear(): limpa a pilha removendo todos os eleentos
+    - void clear(): limpa a pilha removendo todos os elementos
 - Operações NÃO suportadas:
     - searching for data
     - Arbitrary index access
@@ -114,6 +114,55 @@ Stack é definido pelas suas operações e não pela sua estrutura de armazename
     - Apenas deixa os dados no array e seta o size para 0: O(1) mas garbage collect não tem opção de coletar os dados
     - Seta cada indice para null: O(n)
     - Seta o array para uma nova instância assim o garbage collect pode coletar os dados: O(1)
+
+## [Queue](https://github.com/hader-araujo/algorithms/tree/main/src/main/java/queue)
+
+- FIFO (Fist In, Fist Out)
+- Operações suportadas:
+    - void enqueue(x): adiciona elemento no final (to the back of the queue)
+    - x dequeue(): remove elemento do início (from front fo the queue)
+    - x peek() / x top(): retorna elemento do início sem remover
+    - boolean isEmpty(): retorna se está vazio
+    - void clear(): limpa a fila removendo todos os elementos
+- Operações NÃO suportadas:
+    - searching for data
+    - Arbitrary index access
+    - Arbitrary add or remove
+
+![Queue Big O notation](https://github.com/hader-araujo/algorithms/blob/main/src/main/resources/images/Big-O_Queue.png)
+
+## [Queue baseado em Linked List](https://github.com/hader-araujo/algorithms/tree/main/src/main/java/queue/LinkedListBackedQueue.java)~~
+
+~~- enqueue: O(n)~~
+~~- dequeue, peek, isEmpty, clear: O(1)~~
+
+## [Queue baseado em Linked List com variável tail](https://github.com/hader-araujo/algorithms/tree/main/src/main/java/queue/LinkedListBackedQueueWithTail.java)
+
+- Não é utilizado/necessário Double Linked List (Double Linked List tem mais consumo de mémoria)
+- ~~add to head O(1), remove from tail O(n)~~ remove from the head O(1), add to tail o(1)
+- enqueue, dequeue, peek, isEmpty, clear: O(1)
+
+## [Queue baseado em Array](https://github.com/hader-araujo/algorithms/tree/main/src/main/java/queue/ArrayBackedQueue.java)
+
+- Adicionar ou remover do início de um array é O(n), por isso é usado Array e não Array List.
+- Usado Wrap-around or circular Array. Não é a mesma coisa que Circular Linked List
+- Enqueue at the back and dequeue from the front
+- Além da varável size, é utilizado front e back para armazenar seus respectivos indices
+- Ao adicionar no final, variavel back é incrementada com modulo do tamanho do array (back = (back + 1) % arr.lenhth ),
+  com isso, ao chegar no final, próximo indice torna o início do array
+- ao remover do início, é usado mesma lógica, mas para a variável front
+- Array precisa de resize quando size == arr.lenght
+- enqueue: O(1)*
+- dequeue, peek, isEmpty, clear: O(1)
+- resize: O(n)
+
+Stacks e Queues baseados em array são menos performáticos do que Linked List então **porque utilizá-los?**
+Apesar que Stacks e Queues baseados em array são menos performáticos baseados em time complexity Big O Notation, eles
+podem mais
+performáticos pois a Virtual Machine pode prever os próximos passos de execução quando se tem um array e isso não pode
+ser feito quando se te uma Linked List":
+
+![Queue Big O notation](https://github.com/hader-araujo/algorithms/blob/main/src/main/resources/images/ArrayVSLinkedList.png)
 
 # Recursividade
 

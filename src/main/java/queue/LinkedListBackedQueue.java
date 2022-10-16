@@ -2,6 +2,10 @@ package queue;
 
 public class LinkedListBackedQueue<T> {
 
+    /*
+    NÃO UTILIZADO pois with tail é mais performático
+     */
+
     private Node<T> head;
 
     public void enqueue(T value) {
