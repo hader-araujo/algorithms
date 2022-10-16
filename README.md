@@ -14,18 +14,18 @@
 - Contém variável head que é um Node (valor e referência para o próximo Node)
 - não contém busca/pesquisa
 
-### [Singly linked list (SLL)](https://github.com/hader-araujo/algorithms/blob/main/src/main/java/linkedlist/simplelinkedlist/SimpleLinkedList.java)
+### [Singly linked list (SLL)](https://github.com/hader-araujo/algorithms/blob/main/src/main/java/linkedlist/singlylinkedlist/SinglyLinkedList.java)
 
 - addToFront e removeFromFront - O(1)
 - addToBack e removeFromBack - O(n)
 
-### [SLL com variável size](https://github.com/hader-araujo/algorithms/blob/main/src/main/java/linkedlist/simplelinkedlist/SimpleLinkedListOptimizationWithSize.java)
+### [SLL com variável size](https://github.com/hader-araujo/algorithms/blob/main/src/main/java/linkedlist/singlylinkedlist/SinglyLinkedListOptimizationWithSize.java)
 
 - Contém variável size e é utilizada nos 'edge cases' para verificar se a lista está vazia
 - addToFront e removeFromFront - O(1)
 - addToBack e removeFromBack - O(n)
 
-### [SLL com variável tail](https://github.com/hader-araujo/algorithms/blob/main/src/main/java/linkedlist/simplelinkedlist/SimpleLinkedListOptimizationWithTailTest.java)
+### [SLL com variável tail](https://github.com/hader-araujo/algorithms/blob/main/src/main/java/linkedlist/singlylinkedlist/SinglyLinkedListOptimizationWithTail.java)
 
 - Contém variável tail que é um Node com referencia para o último node da lista
 - addToFront e removeFromFront - O(1)
@@ -33,13 +33,13 @@
 - removeFromBack - O(n)
 - adiciona novos edge cases nos métodos addToFront e removeFromFront quando size é 0 ou 1
 
-### [SLL com Iterable](https://github.com/hader-araujo/algorithms/blob/main/src/main/java/linkedlist/simplelinkedlist/SimpleLinkedListOptimizationWithTailIterable.java)
+### [SLL com Iterable](https://github.com/hader-araujo/algorithms/blob/main/src/main/java/linkedlist/singlylinkedlist/SinglyLinkedListOptimizationWithTailIterable.java)
 
 - implements Iterable
 - método iterator() retorna uma instância de uma subclasse de Iterator
 - Subclasse de Iterator contém método hasNest() e next()
 
-#### [Recursion in LinkedLists]((https://github.com/hader-araujo/algorithms/blob/main/src/main/java/linkedlist/simplelinkedlist/SimpleLinkedListOptimizationWithSizeWithMethodRemoveAllDuplicates.java))
+#### [Recursion in LinkedLists]((https://github.com/hader-araujo/algorithms/blob/main/src/main/java/linkedlist/singlylinkedlist/SinglyLinkedListOptimizationWithSizeWithMethodRemoveAllDuplicates.java))
 
 - Com acesso interno a SLL, objetos ordernados, remover todos os objetos duplicados.
 - Isso feito em O(n)
