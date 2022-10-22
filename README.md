@@ -80,7 +80,7 @@
 
 ## [Stack](https://github.com/hader-araujo/algorithms/tree/main/src/main/java/stack)
 
-- LIFO (Last In, Fist Out)
+- LIFO (Last In, First Out)
 - Não tem pesquisa
 - Não acessa elementos a não ser o último adicionado
 - Operações suportadas:
@@ -117,7 +117,7 @@ Stack é definido pelas suas operações e não pela sua estrutura de armazename
 
 ## [Queue](https://github.com/hader-araujo/algorithms/tree/main/src/main/java/queue)
 
-- FIFO (Fist In, Fist Out)
+- FIFO (First In, First Out)
 - Operações suportadas:
     - void enqueue(x): adiciona elemento no final (to the back of the queue)
     - x dequeue(): remove elemento do início (from front fo the queue)
@@ -163,6 +163,48 @@ performáticos pois a Virtual Machine pode prever os próximos passos de execuç
 ser feito quando se te uma Linked List":
 
 ![Queue Big O notation](https://github.com/hader-araujo/algorithms/blob/main/src/main/resources/images/ArrayVSLinkedList.png)
+
+## [Priority Queue]()
+
+// TODO
+
+## [Deque - Double-ended queue]()
+
+- Não é pesquizável
+- Não é LIFO nem FIFO
+- Apenas adiciona e remove dos 2 lados eficientemente
+- Operações suportadas:
+    - void addFirst(x)
+    - void addLast(x)
+    - x removeFirst()
+    - x removeLast()
+    - boolean isEmpty()
+    - int size()
+- Pode ser implementado baseado em Array ou Linked List - todos os métodos são O(1)
+- Operações NÃO suportadas:
+    - searching for data
+    - Arbitrary index access
+    - Arbitrary add or remove
+
+## [Deque baseado em Array]()
+
+- Use circular Wrap-around Array implementation, see
+  in [queue implementation](https://github.com/hader-araujo/algorithms#queue-baseado-em-array).
+- addLast() e removeFirst() são iguais ao métodos queue() e dequeue() - usando o a lógica circular
+- addFirst() e removeLast() precisa fazer a lógica ao contrário "wrap around" o início do array para o final (se front
+  ou
+  back for menor que 1, valor será a capacidade menos 1)
+- Pode ser usado o operador mod para as 2 opções pois ele no java lida com números negativos.
+- Operações em O(1)*
+
+## [Deque baseado em Double Linked List]()
+
+- addFirst() - add to the head
+- addLast() - add to the tail
+- removeFirst() - remove from the head
+- removeLast() - remove from the tail
+- Operações em O(1)
+-
 
 # Recursividade
 
