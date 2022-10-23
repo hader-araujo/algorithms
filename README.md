@@ -27,18 +27,18 @@
 - Contém variável head que é um Node (valor e referência para o próximo Node)
 - não contém busca/pesquisa
 
-### [Singly linked list (SLL)](src/main/java/adt/linearlinkedlist/singlylinkedlist/SinglyLinkedList.java)
+### [Singly linked list (SLL)](src/main/java/adt/linear/linkedlist/singlylinkedlist/SinglyLinkedList.java)
 
 - addToFront e removeFromFront - O(1)
 - addToBack e removeFromBack - O(n)
 
-### [SLL com variável size](src/main/java/adt/linearlinkedlist/singlylinkedlist/SinglyLinkedListOptimizationWithSize.java)
+### [SLL com variável size](src/main/java/adt/linear/linkedlist/singlylinkedlist/SinglyLinkedListOptimizationWithSize.java)
 
 - Contém variável size e é utilizada nos 'edge cases' para verificar se a lista está vazia
 - addToFront e removeFromFront - O(1)
 - addToBack e removeFromBack - O(n)
 
-### [SLL com variável tail](src/main/java/adt/linearlinkedlist/singlylinkedlist/SinglyLinkedListOptimizationWithTail.java)
+### [SLL com variável tail](src/main/java/adt/linear/linkedlist/singlylinkedlist/SinglyLinkedListOptimizationWithTail.java)
 
 - Contém variável tail que é um Node com referencia para o último node da lista
 - addToFront e removeFromFront - O(1)
@@ -46,25 +46,25 @@
 - removeFromBack - O(n)
 - adiciona novos edge cases nos métodos addToFront e removeFromFront quando size é 0 ou 1
 
-### [SLL com Iterable](src/main/java/adt/linearlinkedlist/singlylinkedlist/SinglyLinkedListOptimizationWithTailIterable.java)
+### [SLL com Iterable](src/main/java/adt/linear/linkedlist/singlylinkedlist/SinglyLinkedListOptimizationWithTailIterable.java)
 
 - implements Iterable
 - método iterator() retorna uma instância de uma subclasse de Iterator
 - Subclasse de Iterator contém método hasNest() e next()
 
-#### [Recursion in LinkedLists]((src/main/java/adt/linearlinkedlist/singlylinkedlist/SinglyLinkedListOptimizationWithSizeWithMethodRemoveAllDuplicates.java))
+#### [Recursion in LinkedLists]((src/main/java/adt/linear/linkedlist/singlylinkedlist/SinglyLinkedListOptimizationWithSizeWithMethodRemoveAllDuplicates.java))
 
 - Com acesso interno a SLL, objetos ordernados, remover todos os objetos duplicados.
 - Isso feito em O(n)
 
-### [Double linked list (DLL)](src/main/java/adt/linearlinkedlist/doublylinkedlist/DoublyLinkedList.java)
+### [Double linked list (DLL)](src/main/java/adt/linear/linkedlist/doublylinkedlist/DoublyLinkedList.java)
 
 - Contém variável head e tail que é um Node (valor e referência para o próximo Node e **node anterior**)
 - Usa mais memória, mas é muito mais eficiente do que SLL
 - addToFront, removeFromFront, addToBack e removeFromBack - O(1) - usando next e previus referências
 - adiciona novos edge cases nos métodos ao remover com size igual 1
 
-### [Circular linked list (CLL)](src/main/java/adt/linearlinkedlist/circularlylinkedlist/CircularlyLinkedList.java)
+### [Circular linked list (CLL)](src/main/java/adt/linear/linkedlist/circularlylinkedlist/CircularlyLinkedList.java)
 
 - Método next do último node aponta para head
 - Não precisa da variável tail
