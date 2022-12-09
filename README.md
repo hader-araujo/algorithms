@@ -5,7 +5,7 @@
 - São omitidos os detalhes de implementação de cada tipo
 - Exitem métodos padrões para manipulação dos dados armazenados
 
-# Linear Abstract Data Types ( Linear ADTs)
+# Linear ADTs
 
 - Dados finitos
 - Cada objeto tem 1 antecessor imediato
@@ -208,6 +208,73 @@ ser feito quando se te uma Linked List":
 [Curso](https://learning.edx.org/course/course-v1:GTx+CS1332xI+1T2022/home)
 
 ![img.png](src/main/resources/images/resume.png)
+
+# Non Linear ADTs
+
+## Trees
+
+- it is Linked structure
+- Single linked list are trees - estruta curcular NÃo é tree
+- Cada node tem 1 parent and multiple children
+- Depth of a node é a distancia desse node até root - abordagem de cima pra baixo (root = depth 0, each of the roots
+  children have a depth of one, etc)
+- The height of a node é sua distancia até "leaf" mais distante desse node. The height of any leaf node is always 0
+
+### Binary Trees
+
+- Each node can have at most two children (left and right) - left child always precedes the right in the order of the
+  nodes, not de data
+- Full tree - each node have 0 or 2 children
+- Complete tree - every level must be filled, except the last one, the leafs - todos os niveis deve estar completos,
+  apenas as folhas podem estar faltando
+- Degenerate tree - all nodes have 1 child - the worst case - because it is essentially a linked list
+
+![Binary tree](src/main/resources/images/tree/iterating_binary_tree.png)
+
+#### Binary Search Trees (BST)
+
+- Left child data is less than parent data, and it is less than right child data -- left < parent < right
+- All the data in the left sub tree must be less than the data in the node
+- All the data in the right sub tree must be greater the data in the node
+- com boa performance para busca e pesquisa - O(log n), mas se for Degenerate tree a performance é O(n)
+
+##### Traversals algorithms
+
+- Depth (recursive) traversal algorithm <br />
+  Depth traversal algorithm utiliza Stack (recursive stack) para acessar cada um dos dados
+
+    - Preorder traversal algorithm
+      ![preorder algorithm](src/main/resources/images/tree/preorder_algorithm.png)
+        - executado com recursividade na ordem : CLR: current -> left -> right
+        - a preorder list é usada para criar uma copia exata ta BST e adicionar todos elementos na mesma ordem em uma
+          nova BST. Ou seja, BST preorder traversal unicamente define a estrutura da BST quando seus dados sáo
+          adicionados a uma nova árvore vazia.
+
+    - Postorder traversal algorithm
+      ![postorder algorithm](src/main/resources/images/tree/postorder_algorithm.png)
+        - executado com recursividade na ordem : LRC: left -> right -> current
+        - Unicamente identifica a estrutura de uma BST( tem que ser BST, não uma Binary tree)
+        - Trabalha como uma "depth search algorithm"
+        - é usada em situações quando removemos dados. Em BST, geralmente removemos dos nós folhas (leaves node).
+          ps.: A remoção não é necessariamente feita apenas pelos nós folhas, mas é o modo mais simples. O postorder
+          traversal nos da os dados onde removemos cada dado na ordem postorder traversal, com isso removemos apenas dos
+          nós folhas, que é o caso mais simples para remoção.
+
+    - Inorder traversal algorithm
+      ![inorder algorithm](src/main/resources/images/tree/inorder_algorithm.png)
+        - executado com recursividade na ordem : LCR: left -> current -> right
+        - obtem os dados ordenados, isso é verdade apenas para BST (Binary search tree), que possui especificamente a
+          ordem: left < parent < right
+        - Diferente da preorder e postorder traversals, a inorder traversal não identifica excluvivamente uma BST
+
+- Breadth (iterative) traversal algorithm <br />
+  Breadth traversal algorithm utiliza Queue para acessar cada um dos dados ordenados por aproximidade da raiz (root)
+    - Levelorder traversal algorithm
+      ![levelorder algorithm](src/main/resources/images/tree/levelorder_algorithm.png)
+        - Obtém a lista dos dados na ordem que aparecem nos níveis da árvore, ou seja, obtém os dados na ordem da
+          profuncidade da árvore.
+        - Utiliza Queue, desenfileirando o atual node e enfileirando seus filhos, com isso obtem os dados da raiz para
+          as folhas e da esquerda para a direita
 
 # Recursividade
 
